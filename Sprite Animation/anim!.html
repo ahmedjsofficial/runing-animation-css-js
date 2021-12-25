@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Running</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            background: #060a1f;
+        }
+        .layout{
+            position: relative;
+            width: 800px;
+            height: 160px;
+            background: #525255;
+            transform-origin: bottom;
+            transform-style: preserve-3d;
+            transform: perspective(500px) rotateX(50deg);
+            margin-top: 43%;
+        }
+        .layout::before{
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg , #fff 0%,#fff 70%,#535353 70%,#525252 100%);
+            background-size: 120px;
+            animation: Road 0.5s linear infinite;
+        }
+        @keyframes Road{
+            0%{
+                background-position: 0;
+            }
+            100%
+            {
+                background-position: -120px;
+            }
+        }
+        .layout::after{
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            width: 100%;
+            height: 30px;
+            background: #333333;
+            transform-origin: top;
+            transform: perspective(500px) rotateX(-25deg);
+        }        
+        .shadow{
+            position: absolute;
+            bottom: -92px;
+            left: 2.5%;
+            transform: rotate(-50%);
+            width: 760px;
+            height: 60px;
+            background: linear-gradient(#000000 , transparent);
+            opacity: 0.5;
+        }
+        .baby{
+            position: relative;
+            height: 599px;
+            width: calc(2400px / 8);
+            background: url(./man.png);
+            -webkit-box-reflect: below 1px linear-gradient(transparent 90%, #0004);
+            animation: baby 1s steps(8) infinite;
+            transform: perspective(500px) rotateX(-25deg) translateY(-300px);
+            margin: -24% 0 0 10%;
+         }
+        @keyframes baby{
+            from{
+                background-position: 0;
+            }to{
+                background-position: -2400px;
+            }
+        }
+        .capguy-walk{
+            position: relative;
+            height: 325px;
+            width: calc(1472px / 8);
+            background: url(./capguy-walk.png);
+            -webkit-box-reflect: below 1px linear-gradient(transparent 90%, #0004);
+            animation: capboy 1s steps(8) infinite;
+            transform: perspective(500px) rotateX(-20deg) translateY(-320px);
+            margin: -24% 0 0 55%;
+         }
+        @keyframes capboy{
+            from{
+                background-position: 0;
+            }to{
+                background-position: -1472px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div class="baby"></div>
+        <div class="capguy-walk"></div>
+        <div class="shadow"></div>
+    </div>
+
+</body>
+</html>
